@@ -25,3 +25,20 @@ function gameBoard(){
       addMarkToBoard
     }
   }
+
+  function gamecontrol(){
+    playerOneName = "playerOne"
+    playerTwoName = "playerTwo"
+    const board = gameBoard();
+    const player = [
+      {
+        name: playerOneName,
+        mark: "X"
+      },
+      {
+        name: playerTwoName,
+        mark: "O"
+      }
+    ]
+  };
+
