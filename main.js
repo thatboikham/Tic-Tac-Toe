@@ -46,6 +46,19 @@ function gameBoard(){
       activePlayer = activePlayer === player[0] ? player[1] : player[0];
     };
     const getActivePlayer = () => activePlayer;
+    
+    const placeMark = (rowIndex, columIndex) => {
+      board.addMarkToBoard(rowIndex, columIndex, getActivePlayer().mark);
+      switchTurn();
+      console.log(board.getboard())
+      console.log(`${getActivePlayer().name} turn`)
+  
+    }
+    return{
+      placeMark,
+      getActivePlayer,
+    }
+
   
   };
 
