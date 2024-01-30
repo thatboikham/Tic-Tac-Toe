@@ -46,7 +46,7 @@ function gameBoard(){
       activePlayer = activePlayer === player[0] ? player[1] : player[0];
     };
     const getActivePlayer = () => activePlayer;
-    
+
     const placeMark = (rowIndex, columIndex) => {
       board.addMarkToBoard(rowIndex, columIndex, getActivePlayer().mark);
       switchTurn();
@@ -58,7 +58,8 @@ function gameBoard(){
       placeMark,
       getActivePlayer,
     }
-
-  
   };
+  const game = gamecontrol();
+  game.placeMark(0,0)
+  
 
