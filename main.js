@@ -48,7 +48,7 @@ function gameBoard(){
     const getActivePlayer = () => activePlayer;
 
     const placeMark = (rowIndex, columIndex) => {
-      board.addMarkToBoard(rowIndex, columIndex, getActivePlayer().mark);
+      board.addMarkToBoard(columIndex, rowIndex, getActivePlayer().mark);
       switchTurn();
       console.log(board.getboard())
       console.log(`${getActivePlayer().name} turn`)
@@ -57,9 +57,47 @@ function gameBoard(){
     return{
       placeMark,
       getActivePlayer,
+      board,
     }
   };
-  const game = gamecontrol();
-  game.placeMark(0,0)
-  
 
+
+  function rendergame() {
+    const game = gamecontrol();
+    const turn = document.querySelector('.playerturn');
+    const boardDiv = document.querySelector('.board');
+
+    function updateScreen() {
+      const board = game.board.getboard();
+      const activePlayer = game.getActivePlayer();
+
+      boardDiv.innerHTML = ''; 
+
+      board.forEach((row, rowIndex) => {
+        row.forEach((mark, columnIndex) => {
+          const box = document.createElement('div');
+          box.classList.add('box');
+          box.dataset.row = rowIndex;
+          box.dataset.column = columnIndex;
+          box.textContent = mark;
+
+          box.addEventListener('click', () => {
+            console.log(rowIndex)
+            console.log(columnIndex)
+            if(!mark){
+              game.placeMark(rowIndex, columnIndex);
+              updateScreen();
+            }
+          });
+
+          boardDiv.appendChild(box);
+        });
+      });
+
+      turn.textContent = `${activePlayer.name}'s turn`;
+    }
+
+    updateScreen();
+  }
+
+  rendergame();
