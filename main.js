@@ -52,7 +52,56 @@ function gameBoard(){
       switchTurn();
       console.log(board.getboard())
       console.log(`${getActivePlayer().name} turn`)
-  
+      const MarkXwinner = (function(){
+        const currentboard = board.getboard();
+        if(currentboard[1][1] === player[0].mark){
+          if(currentboard[0][2] === player[0].mark && currentboard[2][0] === player[0].mark || currentboard[0][0] === player[0].mark && currentboard[2][2] === player[0].mark ||
+          currentboard[0][1] === player[0].mark && currentboard[2][1] === player[0].mark ||
+          currentboard[1][0] === player[0].mark && currentboard[1][2] === player[0].mark ||
+          currentboard[0][0] === player[0].mark && currentboard[0][0] === player[0].mark ){
+            console.log(`${player[0].name} winns`)
+          }
+        }
+        if(currentboard[0][0] === player[0].mark){
+          if(currentboard[0][1] === player[0].mark && currentboard[0][2] === player[0].mark ||
+            currentboard[1][0] === player[0].mark && currentboard[2][0] === player[0].mark ){
+            console.log(`${player[0].name} winns`)
+          }
+        }
+        if(currentboard[2][2] === player[0].mark){
+          if(currentboard[2][2] === player[0].mark && currentboard[2][0] === player[0].mark ||
+            currentboard[0][2] === player[0].mark && currentboard[1][2] === player[0].mark 
+             ){
+            console.log(`${player[0].name} winns`)
+          }
+        }
+      
+      })();
+      const MarkOwinner = (function(){
+        const currentboard = board.getboard();
+        if(currentboard[1][1] === player[1].mark){
+          if(currentboard[0][2] === player[1].mark && currentboard[2][0] === player[1].mark || currentboard[0][0] === player[1].mark && currentboard[2][2] === player[0].mark ||
+          currentboard[0][1] === player[1].mark && currentboard[2][1] === player[1].mark ||
+          currentboard[1][0] === player[1].mark && currentboard[1][2] === player[1].mark ||
+          currentboard[0][0] === player[1].mark && currentboard[0][0] === player[1].mark ){
+            console.log(`${player[1].name} winns`)
+          }
+        }
+        if(currentboard[0][0] === player[1].mark){
+          if(currentboard[0][1] === player[1].mark && currentboard[0][2] === player[1].mark ||
+            currentboard[1][0] === player[1].mark && currentboard[2][0] === player[1].mark ){
+            console.log(`${player[1].name} winns`)
+          }
+        }
+        if(currentboard[2][2] === player[1].mark){
+          if(currentboard[2][2] === player[1].mark && currentboard[2][0] === player[1].mark ||
+            currentboard[0][2] === player[1].mark && currentboard[1][2] === player[1].mark 
+             ){
+            console.log(`${player[1].name} winns`)
+          }
+        }
+      
+      })();
     }
     return{
       placeMark,
