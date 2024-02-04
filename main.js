@@ -61,14 +61,17 @@ function gameBoard(){
           currentboard[0][1] === player[0].mark && currentboard[2][1] === player[0].mark ||
           currentboard[1][0] === player[0].mark && currentboard[1][2] === player[0].mark){
             console.log(`${player[0].name} winns`)
-            console.log('yuu hit me')
             restartGame()
+            getXscores();
           }
         }
         if(currentboard[0][0] === player[0].mark){
           if(currentboard[0][1] === player[0].mark && currentboard[0][2] === player[0].mark ||
             currentboard[1][0] === player[0].mark && currentboard[2][0] === player[0].mark ){
             console.log(`${player[0].name} winns`)
+            console.log(`${player[0].name} winns`)
+            restartGame()
+            getXscores();
           }
         }
         if(currentboard[2][2] === player[0].mark){
@@ -76,6 +79,9 @@ function gameBoard(){
             currentboard[0][2] === player[0].mark && currentboard[1][2] === player[0].mark 
              ){
             console.log(`${player[0].name} winns`)
+            console.log(`${player[0].name} winns`)
+            restartGame()
+            getXscores();
           }
         }
       
@@ -88,12 +94,16 @@ function gameBoard(){
           currentboard[1][0] === player[1].mark && currentboard[1][2] === player[1].mark ||
           currentboard[0][0] === player[1].mark && currentboard[0][0] === player[1].mark ){
             console.log(`${player[1].name} winns`)
+            restartGame();
+            getOscores();
           }
         }
         if(currentboard[0][0] === player[1].mark){
           if(currentboard[0][1] === player[1].mark && currentboard[0][2] === player[1].mark ||
             currentboard[1][0] === player[1].mark && currentboard[2][0] === player[1].mark ){
             console.log(`${player[1].name} winns`)
+            restartGame();
+            getOscores();
           }
         }
         if(currentboard[2][2] === player[1].mark){
@@ -101,6 +111,8 @@ function gameBoard(){
             currentboard[0][2] === player[1].mark && currentboard[1][2] === player[1].mark 
              ){
             console.log(`${player[1].name} winns`)
+            restartGame();
+            getOscores();
           }
         }
       
@@ -155,7 +167,7 @@ function gameBoard(){
 
   const restartGame = () => {
     const boxes = document.querySelectorAll('.box');
-    
+
     const board = game.board.getboard();
     console.log(board)
     for (let i = 0; i < board.length; i++) {
@@ -166,4 +178,14 @@ function gameBoard(){
     game.switchTurn();
     rendergame(game);
   };
+  
+  const getXscores = () => {
+    const score1Span = document.getElementById("score1")
+    score1Span.innerText++;
+  }
+  
+  const getOscores = () => {
+    const score2Span = document.getElementById("score2")
+    score2Span.innerText++;
+  }
   
