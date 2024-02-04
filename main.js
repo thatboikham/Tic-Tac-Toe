@@ -55,11 +55,13 @@ function gameBoard(){
       const MarkXwinner = (function(){
         const currentboard = board.getboard();
         if(currentboard[1][1] === player[0].mark){
-          if(currentboard[0][2] === player[0].mark && currentboard[2][0] === player[0].mark || currentboard[0][0] === player[0].mark && currentboard[2][2] === player[0].mark ||
+          if(currentboard[2][0] === player[0].mark && currentboard[0][2] === player[0].mark ||
+          currentboard[0][0] === player[0].mark && currentboard[2][2] === player[0].mark ||
           currentboard[0][1] === player[0].mark && currentboard[2][1] === player[0].mark ||
-          currentboard[1][0] === player[0].mark && currentboard[1][2] === player[0].mark ||
-          currentboard[0][0] === player[0].mark && currentboard[0][0] === player[0].mark ){
+          currentboard[1][0] === player[0].mark && currentboard[1][2] === player[0].mark){
             console.log(`${player[0].name} winns`)
+            console.log('yuu hit me')
+            restartGame()
           }
         }
         if(currentboard[0][0] === player[0].mark){
@@ -110,7 +112,6 @@ function gameBoard(){
     }
   };
 
-
   function rendergame() {
     const game = gamecontrol();
     const turn = document.querySelector('.playerturn');
@@ -148,5 +149,17 @@ function gameBoard(){
 
     updateScreen();
   }
-
   rendergame();
+
+const restartGame = () => {
+  const board = gameBoard().getboard();
+  const boxes = document.querySelectorAll('.box')
+
+  boxes.forEach(box => box.textContent = "")
+  for(let i = 0; i < board.length;i++){
+    for(let j = 0; j < board.length;j++){
+      board[i][j] = null;
+    }
+  }
+  console.log(board)
+}
