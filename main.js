@@ -22,7 +22,8 @@ function gameBoard(){
 
     return{
       getboard,
-      addMarkToBoard
+      addMarkToBoard, 
+      board,
     }
   }
 
@@ -109,11 +110,12 @@ function gameBoard(){
       placeMark,
       getActivePlayer,
       board,
+      switchTurn,
     }
   };
+  const game = gamecontrol();
 
-  function rendergame() {
-    const game = gamecontrol();
+  function rendergame(game) {
     const turn = document.querySelector('.playerturn');
     const boardDiv = document.querySelector('.board');
 
@@ -149,17 +151,19 @@ function gameBoard(){
 
     updateScreen();
   }
-  rendergame();
+  rendergame(game);
 
-const restartGame = () => {
-  const board = gameBoard().getboard();
-  const boxes = document.querySelectorAll('.box')
-
-  boxes.forEach(box => box.textContent = "")
-  for(let i = 0; i < board.length;i++){
-    for(let j = 0; j < board.length;j++){
-      board[i][j] = null;
+  const restartGame = () => {
+    const boxes = document.querySelectorAll('.box');
+    
+    const board = game.board.getboard();
+    console.log(board)
+    for (let i = 0; i < board.length; i++) {
+      for (let j = 0; j < board.length; j++) {
+        board[i][j] = null;
+      }
     }
-  }
-  console.log(board)
-}
+    game.switchTurn();
+    rendergame(game);
+  };
+  
