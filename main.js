@@ -117,6 +117,21 @@ function gameBoard(){
         }
       
       })();
+    const draw = (function(){
+      const currentboard = board.getboard();
+      console.log(currentboard)
+      let hasNullValue = false;
+      for(i = 0; i < currentboard.length;i++){
+        for(j = 0; j < currentboard.length;j++){
+          if(currentboard[i][j] == null){
+            hasNullValue = true
+          }
+        }
+      }
+      if(!hasNullValue){
+        restartGame();
+      }
+    })();
     }
     return{
       placeMark,
