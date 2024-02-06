@@ -204,3 +204,11 @@ function gameBoard(){
     score2Span.innerText++;
   }
   
+  const restartGameButton = () => {
+    const score1Span = document.getElementById("score1")
+    const score2Span = document.getElementById("score2")
+    
+    score1Span.innerText = 0;
+    score2Span.innerText = 0;
+    restartGame();
+  }
