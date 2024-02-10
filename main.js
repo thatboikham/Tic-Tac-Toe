@@ -96,6 +96,7 @@ function gameBoard(){
             console.log(`${player[1].name} winns`)
             restartGame();
             getOscores();
+            game.switchTurn();
           }
         }
         if(currentboard[0][0] === player[1].mark){
@@ -104,6 +105,7 @@ function gameBoard(){
             console.log(`${player[1].name} winns`)
             restartGame();
             getOscores();
+            game.switchTurn();
           }
         }
         if(currentboard[2][2] === player[1].mark){
@@ -113,6 +115,7 @@ function gameBoard(){
             console.log(`${player[1].name} winns`)
             restartGame();
             getOscores();
+            game.switchTurn();
           }
         }
       
