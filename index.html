@@ -7,10 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="playerInputs"></div>
     <div class="main">
         <div class="playerturn"></div>
-        <div class="scoreboard"><span class="score1">0</span>:<span class="score2">0</span></div>
+        <div class="scoreboard"><span id="score1">0</span>:<span id="score2">0</span></div>
         <div class="board"></div>
+        <div class="restartdiv">  <button id="restartbutton" onclick="restartGameButton()">restart</button></div>
     </div>
     <script src="main.js"></script>
 </body>

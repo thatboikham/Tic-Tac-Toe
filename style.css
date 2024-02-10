@@ -45,3 +45,28 @@ body{
 .box:nth-child(3n + 1){
     border-left: none;
 }
+.restartdiv{
+  display: flex;
+  justify-content: center;
+  margin-top: 2.2em;
+}
+button{
+  text-align: center;
+  padding: 1em;
+  border: none;
+  border-radius: 10px;
+  background-color: #3399ff;
+  color: #ffffff;
+}  
+.main{
+  display: none;
+}
+.playerInputs{
+  width: 100%;
+  height: 100vh;
+  color: #ffffff;
+  background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+  background-size: 4005 400%;
+  animation: change 10s ease-in-out infinite;
+}
+
