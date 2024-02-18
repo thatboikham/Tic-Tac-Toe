@@ -28,8 +28,11 @@ function gameBoard(){
   }
 
   function gamecontrol(){
-    playerOneName = "playerOne"
-    playerTwoName = "playerTwo"
+    const playerOneInput = "player One"
+    const playerTwoInput = "player Two"
+
+    playerOneName = playerOneInput
+    playerTwoName = playerTwoInput
     const board = gameBoard();
     const player = [
       {
@@ -141,6 +144,7 @@ function gameBoard(){
       getActivePlayer,
       board,
       switchTurn,
+      player,
     }
   };
   const game = gamecontrol();
